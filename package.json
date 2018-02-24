@@ -1,0 +1,19 @@
+{
+  "name": "emotion_intensity_survey",
+  "version": "1.0.0",
+  "description": "A serverless emotion intensity survey.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JUNLIN WU",
+  "license": "MIT",
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/phejimlin/emotion_intensity_survey.git"
+  },
+  "dependencies": {
+    "serverless-finch": "^1.4.0",
+    "serverless-python-requirements": "^3.3.0"
+  }
+}
