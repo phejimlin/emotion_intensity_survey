@@ -27,8 +27,8 @@ provider:
       Action: 
         - "dynamodb:*"
       Resource: 
-        - arn:aws:dynamodb:ap-northeast-1:397114241828:table/survey
-        - arn:aws:dynamodb:ap-northeast-1:397114241828:table/user
+        - arn:aws:dynamodb:ap-northeast-1:397114241828:table/*
+
 
 # you can define service wide environment variables here
 #  environment:
@@ -49,14 +49,21 @@ functions:
     events:
       - http:
          path: survey
-         method: post
+         method: get
          cors: true
-  user_handler:
-    handler: handler.user_handler
+  feedback_handler:
+    handler: handler.feedback_handler
     events:
       - http:
-         path: user
+         path: feedback
          method: post
+         cors: true
+  feedback_update_handler:
+    handler: handler.feedback_update_handler
+    events:
+      - http:
+         path: feedback
+         method: put
          cors: true
 plugins:
   - serverless-finch

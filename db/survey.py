@@ -2,6 +2,9 @@ import json
 import decimal
 from datetime import datetime
 from db import dynamodb
+from botocore.exceptions import ClientError
+from boto3.dynamodb.conditions import Key
+import random
 table = dynamodb.Table('survey')
 
 # Helper class to convert a DynamoDB item to JSON.
@@ -14,30 +17,48 @@ class DecimalEncoder(json.JSONEncoder):
 				return int(o)
 		return super(DecimalEncoder, self).default(o)
 
+def choise_survey():
+	# 找還沒完成三筆的survey 回傳給user
+	fe = Key('collected_feedback').eq(False)
+	# pe = "#yr, title, info.rating"
+	# Expression Attribute Names for Projection Expression only.
+	response = table.scan(
+		FilterExpression=fe
+	)
+	length = len(response['Items'])
+	if length > 0:
+		random_seed = random.randint(0, length - 1)
+		print(random_seed)
+		return json.dumps(response['Items'][random_seed], cls=DecimalEncoder)
+	else:
+		return json.dumps({"data": None})
 
-def put_survey(body):
-	survey_id = body['survey_id']
-	comment_id = body['id']
-	content = body['content']
-	joy=body.get('joy', 0)
-	angry=body.get('angry', 0)
-	sad=body.get('sad', 0)
-	surprise=body.get('surprise', 0)
-	fear=body.get('fear', 0)
+def get_survey(id):
+	try:
+		response = table.get_item(
+			Key={
+				'id': id,
+			}
+		)
+	except ClientError as e:
+		print(e.response['Error']['Message'])
+	else:
+		item = response['Item']
+		print("GetItem succeeded:")
+		return json.dumps(item, indent=4, cls=DecimalEncoder)
 
-	response = table.put_item(
-		Item={
-			'survey_id': survey_id,
-			'id': comment_id,
-			'content': content,
-			'joy': decimal.Decimal(str(joy)),
-			'angry': decimal.Decimal(str(angry)),
-			'sad': decimal.Decimal(str(sad)),
-			'surprise': decimal.Decimal(str(surprise)),
-			'fear': decimal.Decimal(str(fear))
-		}
+def update_survey_finished(id):
+	response = table.update_item(
+		Key={
+			'id': id
+		},
+		UpdateExpression="set collected_feedback=:p",
+		ExpressionAttributeValues={
+			':p': True
+		},
+		ReturnValues="UPDATED_NEW"
 	)
 
-	print("PutItem succeeded:")
+	print("UpdateItem succeeded:")
 	print(json.dumps(response, indent=4, cls=DecimalEncoder))
 	return None

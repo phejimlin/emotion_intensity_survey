@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Emotion intensity Label</title>
+    <title>情緒強度問卷</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,9 +33,9 @@
 	  	<div class="row col-xs-12 col-md-12">
 	        <!-- Instructions -->
 	        <div class="card">
-	            <div class="card-header"><strong>Instructions</strong></div>
+	            <div class="card-header"><strong>指示</strong></div>
 	            <div class="card-body">
-	                <h5>A text can be rated by two factors <strong>independently</strong>.&nbsp;Please rate the text using <strong>BOTH the sliders</strong>.&nbsp;For each slider, the default positions is located in&nbsp;the middle of the bar; <strong>don&#39;t think too much</strong> about it,&nbsp;just drag <strong>both the sliders</strong> to the most suitable positions you think when you reading the text. <strong>All 74 HITs</strong> should be compeleted.</h5>
+	            	<h5> 您好，歡迎來到情緒問卷，每一句話總共有六個情緒可以選擇，當您讀完這句，不需要做太多思考，依照那句話的情緒與強度，將強度條選取至適當位置。&nbsp;每句話至少一個情緒，也可以多種情緒混合，而如果這句話也含有諷刺意味，也請選取。 問卷結束後，如判定是有效問卷，可以提供PTT帳號，做發P幣之用。</h5>
 	            </div>
 	        </div>
 
@@ -43,14 +43,14 @@
 
     	<br />
 		<div class="row justify-content-end">
-			<div class="col-2">
-				<h4 id='numberOfSurvey'>1 / 20</h4>
+			<div class="col-4">
+				<h4 id='numberOfSurvey'>0 / 0</h4>
 			</div>
 		</div>
 		<div class="card" id="survey">
 			<div class="card-header">
 		        <!-- <h3><b>Text ID: </b><b>${textid1}</b>&nbsp;</h3> -->
-		     	<h3><b id="surveyContent">Message</b>&nbsp;</h3>
+		     	<h3><b id="surveyContent"></b>&nbsp;</h3>
 			</div>
 			
 
@@ -62,7 +62,7 @@
 							<span><b>Joy &nbsp; &nbsp;</b></span>
 						</div>
 						<div class="col-md-3 offset-md-1">
-							<input id="joy" name="joy" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.001" data-slider-value="0"/>							
+							<input id="joy" name="joy" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.01" data-slider-value="0"/>							
 						</div>
 						<div class="col-md-3 offset-md-1">
 							<span id="joyCurrentSliderValLabel">&nbsp; &nbsp; Intensity: <span id="joySliderVal">0</span></span>
@@ -70,6 +70,24 @@
 					</div>
 				    
 				</div>
+				
+				<div class="row">&nbsp;</div>
+
+				<div>
+					<div class="row justify-content-center">
+						<div class="col-md-2 offset-md-2">
+							<span><b>Love &nbsp; &nbsp;</b></span>
+						</div>
+						<div class="col-md-3 offset-md-1">
+							<input id="love" name="love" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.01" data-slider-value="0"/>							
+						</div>
+						<div class="col-md-3 offset-md-1">
+							<span id="loveCurrentSliderValLabel">&nbsp; &nbsp; Intensity: <span id="loveSliderVal">0</span></span>
+						</div>
+					</div>
+				    
+				</div>
+
 				<div class="row">&nbsp;</div>
 
 				<div class="row justify-content-center">
@@ -77,7 +95,7 @@
 						<span><b>Angry &nbsp; &nbsp;</b></span>
 					</div>
 				    <div class="col-md-3 offset-md-1">
-						<input id="angry" name="angry" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.001" data-slider-value="0"/>
+						<input id="angry" name="angry" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.01" data-slider-value="0"/>
 					</div>
 					<div class="col-md-3 offset-md-1">
 						<span id="angryCurrentSliderValLabel">&nbsp; &nbsp; Intensity: <span id="angrySliderVal">0</span></span>
@@ -90,7 +108,7 @@
 						<span><b>Surprise &nbsp; &nbsp;</b></span>
 					</div>
 				    <div class="col-md-3 offset-md-1">
-						<input id="surprise" name="surprise" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.001" data-slider-value="0"/>
+						<input id="surprise" name="surprise" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.01" data-slider-value="0"/>
 					</div>
 					<div class="col-md-3 offset-md-1">
 						<span id="surpriseCurrentSliderValLabel">&nbsp; &nbsp; Intensity: <span id="surpriseSliderVal">0</span></span>
@@ -103,7 +121,7 @@
 						<span><b>Sad &nbsp; &nbsp;</b></span>
 					</div>
 				    <div class="col-md-3 offset-md-1">
-						<input id="sad" name="sad" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.001" data-slider-value="0"/>
+						<input id="sad" name="sad" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.01" data-slider-value="0"/>
 					</div>
 					<div class="col-md-3 offset-md-1">
 						<span id="sadCurrentSliderValLabel">&nbsp; &nbsp; Intensity: <span id="sadSliderVal">0</span></span>
@@ -116,13 +134,27 @@
 						<span><b>Fear &nbsp; &nbsp;</b></span>
 					</div>
 				    <div class="col-md-3 offset-md-1">
-						<input id="fear" name="fear" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.001" data-slider-value="0"/>
+						<input id="fear" name="fear" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.01" data-slider-value="0"/>
 					</div>
 					<div class="col-md-3 offset-md-1">
 						<span id="fearCurrentSliderValLabel">&nbsp; &nbsp; Intensity: <span id="fearSliderVal">0</span></span>
 					</div>
 				</div>
 				<div class="row">&nbsp;</div>
+				
+				<div class="row justify-content-center">
+					<div class="col-md-4 offset-md-2">
+						<div class="form-check">
+						  <input class="form-check-input" type="checkbox" value="" id="sarcasmCheckbox">
+						  <label class="form-check-label" for="defaultCheck1">
+						    是否有諷刺意味
+						  </label>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">&nbsp;</div>
+
 
 				<div class="row justify-content-center">
 					<button type="button" class="btn btn-primary" onclick="submitSurvey();">Submit</button>
@@ -150,6 +182,11 @@
 				$("#joySliderVal").text(slideEvt['value']['newValue']);
 			});
 
+			$("#love").bootstrapSlider();
+			$("#love").on("change", function(slideEvt) {
+				$("#loveSliderVal").text(slideEvt['value']['newValue']);
+			});
+
 			$("#angry").bootstrapSlider();
 			$("#angry").on("change", function(slideEvt) {
 				$("#angrySliderVal").text(slideEvt['value']['newValue']);
@@ -172,57 +209,116 @@
 
 		});
 		// TODO: 將資料request回來，然後先秀第一份。並把總數列在右上角。 ex: 1/20 -> 2/20 -> 2/30
-		index = 0;
-		console.log(index);
-		surveyId = '_' + Math.random().toString(36).substr(2, 9);
-    	dataList = [
-	    	{
-	    		"id": 0,
-	    		"content": "測試測試～"
-	    	},
-	    	{
-	    		"id": 1,
-	    		"content": "好累啊～"
-	    	}
-    	]
-    	// Init survey!
-    	document.getElementById("numberOfSurvey").innerHTML = `${index+1} / ${dataList.length}`;
-    	document.getElementById("surveyContent").innerHTML = dataList[index]['content'];
+		var surveyId, dataList, feedbackDataList = [], feedback_id = '_' + Math.random().toString(36).substr(2, 9);
+		$.ajax({
+            url: "https://ipshbn2zc8.execute-api.ap-northeast-1.amazonaws.com/dev/survey",
+            type: 'get',
+            contentType: "application/json; charset=utf-8",
+            success: function (data, status) {
+				console.log("Status: " + status);
+				// console.log(data);
+				// Init survey!
+				dataList = data['data'];
+				if (dataList != null){
+					surveyId = data['id'];
+					index = 0;
+					document.getElementById("numberOfSurvey").innerHTML = `${index} / ${dataList.length-1}`;
+					document.getElementById("surveyContent").innerHTML = dataList[index]['message'];
+				}
+				else{
+					console.log("No survey available.")
+    				document.getElementById("survey").innerHTML = 
+    				`
+					<div class="container">
+					  	<div class="row justify-content-center">
+							<div class="row">
+					  			<h5> 已經沒有問卷可填嚕，研究生在此感謝您的熱心幫助！</h5>				
+							</div>
+					  	</div>
+				  	</div>
+    				`;
+				}
 
+            },
+            error: function(data, status) {
+              // console.log(data);
+              var status = data.status;
+              console.log("Get survey error!")
+				document.getElementById("survey").innerHTML = 
+				`
+				<div class="container">
+				  	<div class="row justify-content-center">
+						<div class="row">
+				  			<h5> OPPS, 有東西壞了。</h5>				
+						</div>
+				  	</div>
+			  	</div>
+				`;
+            },
+      	});
 
+    
     	function submitSurvey() { 
     		// TODO: 每做完一份按下submit之後，送去server存。將畫面換成下一份survey。
     		joyValue = $('#joy').bootstrapSlider('getValue');
+    		loveValue = $('#love').bootstrapSlider('getValue');
     		angryValue = $('#angry').bootstrapSlider('getValue');
     		surpriseValue = $('#surprise').bootstrapSlider('getValue');
     		sadValue = $('#sad').bootstrapSlider('getValue');
     		fearValue = $('#fear').bootstrapSlider('getValue');
-
-    		console.log(joyValue, angryValue, surpriseValue, sadValue, fearValue);
+    		var sarcasmValue = $('#sarcasmCheckbox')[0].checked;
+    		// console.log(joyValue, loveValue, angryValue, surpriseValue, sadValue, fearValue, sarcasmValue);
     		
     		// block if no emotion been clicked.
-    		if (joyValue===0 && angryValue===0 && surpriseValue===0 && sadValue===0 && fearValue===0) {
-    			alert("每句話最少要選一種情緒哦！")
+    		if (joyValue===0 && loveValue===0 && angryValue===0 && surpriseValue===0 && sadValue===0 && fearValue===0) {
+    			alert("每句話最少要選一種情緒哦！");
     		} else{
+    			var emotion_list = [joyValue, loveValue, angryValue, surpriseValue, sadValue, fearValue];
+	    		var emotion_label = ['joy', 'love', 'angry', 'surprise', 'sad', 'fear'];
+	    		var max_emotion_index = emotion_list.indexOf(Math.max(...emotion_list));
     			data = {
-    				"survey_id": surveyId,
-    				"content":  dataList[index]['content'],
-    				"id": dataList[index]['id'],
+    				"message":  dataList[index]['message'],
+    				"emotion_tag": dataList[index]['emotion_tag'],
+    				"UID": dataList[index]['UID'],
     				"joy": joyValue,
+    				"love": loveValue,
     				"angry": angryValue,
     				"surprise": surpriseValue,
     				"sad": sadValue,
-    				"fear": fearValue
+    				"fear": fearValue,
+    				"sarcasm": sarcasmValue,
+    				'label': emotion_label[max_emotion_index]
     			}
-    			console.log(data);
-    			sendSurveyData(data);
+    			feedbackDataList.push(data);
+    			// console.log(data);
     			// Next survey
     			index+=1;
-    			console.log(index, dataList.length);
+    			// console.log(index, dataList.length);
     			if (index < dataList.length) {
     				resetSurvey();
     			} else{
-    				console.log("Survey is ending.")
+    				sendFeedbackData(feedbackDataList);
+    			}
+    		}
+		}
+		// TODO: 做完survey 再一次存資料。
+
+		function sendFeedbackData(data){
+			feedbackData = {
+				"survey_id": surveyId,
+				"feedback_id": feedback_id,
+				"data": data
+			}
+			// console.log(feedbackData);
+			$.ajax({
+	            url: "https://ipshbn2zc8.execute-api.ap-northeast-1.amazonaws.com/dev/feedback",
+	            type: 'post',
+	            contentType: "application/json; charset=utf-8",
+	            success: function (data, status) {
+	              // console.log(data);
+	              // console.log("Data: " + data + "\nStatus: " + status)
+
+	              console.log("Survey is ending.")
     				document.getElementById("survey").innerHTML = 
     				`
 					<div class="container">
@@ -236,55 +332,62 @@
 						  		<div class="input-group ">
 								  <input id="pttID" type="text" class="form-control" placeholder="PPT ID" aria-label="Recipient's username" aria-describedby="basic-addon2">
 								  <div class="input-group-append">
-								    <button class="btn btn-outline-secondary" onclick="submitId();" type="button">Submit</button>
+								    <button class="btn btn-outline-secondary" onclick="sendID();" type="button">Submit</button>
 								  </div>
 								</div>
 							</div>
 						</div>
 				  	</div>
     				`;
-
-    			}
-    		}
-		}
-		function submitId(){
-			data = {
-				"survey_id": surveyId,
-				"ptt_account": document.getElementById('pttID').value				
-    		}
-    		console.log(data);
-    		sendID(data);
-		}
-
-		function sendSurveyData(data){
-			console.log(data);
-			$.ajax({
-	            url: "https://ipshbn2zc8.execute-api.ap-northeast-1.amazonaws.com/dev/survey",
-	            type: 'post',
-	            contentType: "application/json; charset=utf-8",
-	            success: function (data, status) {
-	              console.log(data);
-	              console.log("Data: " + data + "\nStatus: " + status)
-
 	            },
 	            error: function(data, status) {
-	              console.log(data);
-	              var status = data.status;
-	              var errorMessage = data['responseJSON']['message'];
-	              console.log("Status: " + status + "\n messgage " + errorMessage)
+		            // console.log(data);
+		            var status = data.status;
+		            var errorMessage = data['responseJSON']['message'];
+		            // console.log("Status: " + status + "\n messgage " + errorMessage)
+	              	if (errorMessage==="Invalid feedback!") {
+						// Show invalid survey!
+					  document.getElementById("survey").innerHTML = 
+					  	`
+						<div class="container">
+						  	<div class="row justify-content-center">
+								<div class="row">
+						  			<h5> 抱歉，您的問卷被判定是無效問卷，記得要認真作答哦！</h5>				
+						  			<h5>別灰心，refresh後即可再次作答，感謝！</h5>
+								</div>
+						  	</div>
+					  	</div>
+	    				`;
+    				} else {
+    					// Show invalid survey!
+					  document.getElementById("survey").innerHTML = 
+					  	`
+						<div class="container">
+						  	<div class="row justify-content-center">
+								<div class="row">
+						  			<h5> OPPS! 有東西壞了，請通知作者！謝謝</h5>				
+								</div>
+						  	</div>
+					  	</div>
+	    				`;
+    				}
 	            },
-	            data: JSON.stringify(data)
+	            data: JSON.stringify(feedbackData)
           	});
 		}
 		function sendID(data){
-			console.log(data);
+			data = {
+				"feedback_id": feedback_id,
+				"ptt_account": document.getElementById('pttID').value				
+    		}
+			// console.log(data);
 			$.ajax({
-	            url: "https://ipshbn2zc8.execute-api.ap-northeast-1.amazonaws.com/dev/user",
-	            type: 'post',
+	            url: "https://ipshbn2zc8.execute-api.ap-northeast-1.amazonaws.com/dev/feedback",
+	            type: 'put',
 	            contentType: "application/json; charset=utf-8",
 	            success: function (data, status) {
-	              console.log(data);
-	              console.log("Data: " + data + "\nStatus: " + status)
+	              // console.log(data);
+	              // console.log("Data: " + data + "\nStatus: " + status)
 	              // 最後做完跳出填 PPT ID name。
 				  document.getElementById("survey").innerHTML = 
 				  	`
@@ -299,10 +402,10 @@
 
 	            },
 	            error: function(data, status) {
-	              console.log(data);
+	              // console.log(data);
 	              var status = data.status;
 	              var errorMessage = data['responseJSON']['message'];
-	              console.log("Status: " + status + "\n messgage " + errorMessage)
+	              // console.log("Status: " + status + "\n messgage " + errorMessage)
 	            },
 	            data: JSON.stringify(data)
           	});
@@ -311,6 +414,9 @@
 		function resetSurvey() {
 			$("#joy").bootstrapSlider('refresh');
     		document.getElementById("joySliderVal").innerHTML = 0;
+
+    		$("#love").bootstrapSlider('refresh');
+    		document.getElementById("loveSliderVal").innerHTML = 0;
 
     		$("#angry").bootstrapSlider('refresh');
     		document.getElementById("angrySliderVal").innerHTML = 0;
@@ -324,8 +430,10 @@
 			$("#fear").bootstrapSlider('refresh');
     		document.getElementById("fearSliderVal").innerHTML = 0;
 
-    		document.getElementById("numberOfSurvey").innerHTML = `${index+1} / ${dataList.length}`;
-    		document.getElementById("surveyContent").innerHTML = dataList[index]['content'];
+    		$('#sarcasmCheckbox').prop('checked', false);
+
+    		document.getElementById("numberOfSurvey").innerHTML = `${index} / ${dataList.length-1}`;
+    		document.getElementById("surveyContent").innerHTML = dataList[index]['message'];
 		}
 
     </script>
